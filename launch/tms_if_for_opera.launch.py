@@ -63,7 +63,7 @@ def generate_launch_description():
         executable='moveit2_change_pose_action_server',
         namespace='zx200',
         parameters=[
-            {'robot_description': robot_description_content},
+            {'robot_description': ParameterValue(robot_description_content, value_type=str)},
             {'planning_group': LaunchConfiguration('planning_group')},
             {'collision_object_record_name': LaunchConfiguration('collision_object_record_name')},
             {'collision_object_dump_record_name': LaunchConfiguration('collision_object_dump_record_name')},
@@ -78,7 +78,7 @@ def generate_launch_description():
         executable='moveit2_change_pose_plan_action_server',
         namespace='zx200',
         parameters=[
-            {'robot_description': robot_description_content},
+            {'robot_description': ParameterValue(robot_description_content, value_type=str)},
             {'planning_group': LaunchConfiguration('planning_group')},
             {'collision_object_record_name': LaunchConfiguration('collision_object_record_name')},
             {'collision_object_dump_record_name': LaunchConfiguration('collision_object_dump_record_name')},
@@ -93,7 +93,7 @@ def generate_launch_description():
         executable='moveit2_excavate_simple_action_server',
         namespace='zx200',
         parameters=[
-            {'robot_description': robot_description_content},
+            {'robot_description': ParameterValue(robot_description_content, value_type=str)},
             {'planning_group': LaunchConfiguration('planning_group')},
             {'collision_object_record_name': LaunchConfiguration('collision_object_record_name')},
             {'collision_object_dump_record_name': LaunchConfiguration('collision_object_dump_record_name')},
@@ -108,7 +108,7 @@ def generate_launch_description():
         executable='moveit2_excavate_simple_plan_action_server',
         namespace='zx200',
         parameters=[
-            {'robot_description': robot_description_content},
+            {'robot_description': ParameterValue(robot_description_content, value_type=str)},
             {'planning_group': LaunchConfiguration('planning_group')},
             {'collision_object_record_name': LaunchConfiguration('collision_object_record_name')},
             {'collision_object_dump_record_name': LaunchConfiguration('collision_object_dump_record_name')},
@@ -123,7 +123,7 @@ def generate_launch_description():
         executable='moveit2_release_simple_action_server',
         namespace='zx200',
         parameters=[
-            {'robot_description': robot_description_content},
+            {'robot_description': ParameterValue(robot_description_content, value_type=str)},
             {'planning_group': LaunchConfiguration('planning_group')},
             {'collision_object_record_name': LaunchConfiguration('collision_object_record_name')},
             {'collision_object_dump_record_name': LaunchConfiguration('collision_object_dump_record_name')},
@@ -138,7 +138,7 @@ def generate_launch_description():
         executable='moveit2_level_action_server',
         namespace='zx200',
         parameters=[
-            {'robot_description': robot_description_content},
+            {'robot_description': ParameterValue(robot_description_content, value_type=str)},
             {'planning_group': LaunchConfiguration('planning_group')},
             {'collision_object_record_name': LaunchConfiguration('collision_object_record_name')},
             {'collision_object_dump_record_name': LaunchConfiguration('collision_object_dump_record_name')},
@@ -153,7 +153,7 @@ def generate_launch_description():
         executable='moveit2_gather_action_server',
         namespace='zx200',
         parameters=[
-            {'robot_description': robot_description_content},
+            {'robot_description': ParameterValue(robot_description_content, value_type=str)},
             {'planning_group': LaunchConfiguration('planning_group')},
             {'collision_object_record_name': LaunchConfiguration('collision_object_record_name')},
             {'collision_object_dump_record_name': LaunchConfiguration('collision_object_dump_record_name')},
