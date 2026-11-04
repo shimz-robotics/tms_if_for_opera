@@ -41,7 +41,7 @@ Thus, tms_if_for_opera is an indispensable module for operating OPERA-compatible
         cd ~/ros2-tms-for-construction_ws && source install/setup.bash
         ros2 launch zx200_bringup vehicle.launch.py command_interface_name:=velocity use_rviz:=true use_sim_time:=true
         ```
-        Unity (OperaSim-PhysX) と組む場合は、別のターミナルで関節状態の中継も起動する (下の「追加した障害物を考慮した軌道計画」の注を参照)。
+        別のターミナルで、Unity の関節状態を MoveIt へ中継するノードを起動する。
         ```bash
         cd ~/ros2-tms-for-construction_ws && source install/setup.bash
         ros2 run zx200_unity pubFrontJointState.py
@@ -307,7 +307,7 @@ cd ~/ros2-tms-for-construction_ws && source install/setup.bash
 ros2 launch zx200_bringup vehicle.launch.py command_interface_name:=velocity use_rviz:=true use_sim_time:=true
 ```
 ```bash
-# 2つ目のターミナル
+# 2つ目のターミナル (Unity の関節状態を MoveIt へ中継する)
 cd ~/ros2-tms-for-construction_ws && source install/setup.bash
 ros2 run zx200_unity pubFrontJointState.py
 ```
@@ -317,7 +317,5 @@ cd ~/ros2-tms-for-construction_ws && source install/setup.bash
 ros2 launch tms_ts_launch tms_ts_construction.launch.py task_id:=<task_id>
 ```
 ※<task_id>は、zx200を使用するタスクのidを指定する。
-
-※[zx200_ros2](https://github.com/pwri-opera/zx200_ros2) の main には `zx200_unity/launch/zx200_standby.launch.py` がない (`zx200_standby_phsyx.launch.py` に名前が変わった)。上のコマンドは、main (de7ab607) で Unity と組んで動いた `vehicle.launch.py` を使う。de7ab607 以降の `vehicle.launch.py` の MoveIt は `/zx200/front_joint_states` を読む。Unity (OperaSim-PhysX) と組む場合は、Unity が出す `/zx200/joint_states` を `pubFrontJointState.py` でそこへ中継する。Unity の時刻に合わせるため `use_sim_time:=true` を付ける。
     
 
