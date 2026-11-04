@@ -314,8 +314,10 @@ ros2 run zx200_unity pubFrontJointState.py
 ```bash
 # 3つ目のターミナル
 cd ~/ros2-tms-for-construction_ws && source install/setup.bash
-ros2 launch tms_ts_launch tms_ts_construction.launch.py task_id:=<task_id>
+ros2 launch tms_ts_launch tms_ts_construction.launch.py task_id:=<task_id> use_sim_time:=true
 ```
 ※<task_id>は、zx200を使用するタスクのidを指定する。
+
+※Unity と組む場合は、上の tms_if_for_opera の起動にも `use_sim_time:=true` を付ける。
     
 
