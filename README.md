@@ -39,7 +39,12 @@ Thus, tms_if_for_opera is an indispensable module for operating OPERA-compatible
     1. 軌道計画時のRviz2を起動
         ```bash
         cd ~/ros2-tms-for-construction_ws && source install/setup.bash
-        ros2 launch zx200_unity zx200_standby.launch.py
+        ros2 launch zx200_bringup vehicle.launch.py command_interface_name:=velocity use_rviz:=true use_sim_time:=true
+        ```
+        別のターミナルで、Unity の関節状態を MoveIt へ中継するノードを起動する。
+        ```bash
+        cd ~/ros2-tms-for-construction_ws && source install/setup.bash
+        ros2 run zx200_unity pubFrontJointState.py
         ```
     2. 画像中の手順に従い、障害物を設定後、エクスポート
         ![](docs/AddCollisionObjects.png)
@@ -299,10 +304,15 @@ ros2 launch tms_if_for_opera tms_if_for_opera.launch.py collision_object_record_
 ```bash
 # 1つ目のターミナル
 cd ~/ros2-tms-for-construction_ws && source install/setup.bash
-ros2 launch zx200_unity zx200_standby.launch.py 
+ros2 launch zx200_bringup vehicle.launch.py command_interface_name:=velocity use_rviz:=true use_sim_time:=true
 ```
 ```bash
-# 2つ目のターミナル
+# 2つ目のターミナル (Unity の関節状態を MoveIt へ中継する)
+cd ~/ros2-tms-for-construction_ws && source install/setup.bash
+ros2 run zx200_unity pubFrontJointState.py
+```
+```bash
+# 3つ目のターミナル
 cd ~/ros2-tms-for-construction_ws && source install/setup.bash
 ros2 launch tms_ts_launch tms_ts_construction.launch.py task_id:=<task_id>
 ```
